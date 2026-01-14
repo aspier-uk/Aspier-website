@@ -1,0 +1,726 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="aspier — premium activewear. Minimal design. Elevated texture. UK launch soon." />
+  <title>aspier — premium activewear (UK launch)</title>
+
+  <!-- Premium-feel font (safe fallback included) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#070708;
+      --panel: rgba(255,255,255,.04);
+      --panel2: rgba(255,255,255,.03);
+      --line: rgba(255,255,255,.12);
+      --line2: rgba(255,255,255,.18);
+      --text:#F3F4F6;
+      --muted: rgba(243,244,246,.72);
+      --soft: rgba(243,244,246,.86);
+      --shadow: 0 24px 90px rgba(0,0,0,.65);
+      --radius: 22px;
+      --max: 1180px;
+
+      /* Accent is subtle + premium (change if you want) */
+      --accent: 186, 255, 215; /* mint */
+      --accent2: 210, 230, 255; /* cool */
+      --accent3: 255, 226, 186; /* warm */
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      background: var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-x:hidden;
+    }
+    a{ color:inherit; text-decoration:none; }
+    a:hover{ opacity:.92; }
+    .container{ max-width: var(--max); margin:0 auto; padding:0 22px; }
+
+    /* Background: premium glow + grain + grid motif */
+    .bg{
+      position:fixed; inset:0; z-index:-3;
+      background:
+        radial-gradient(900px 520px at 15% 0%, rgba(var(--accent), .18), transparent 50%),
+        radial-gradient(720px 420px at 92% 12%, rgba(var(--accent2), .14), transparent 52%),
+        radial-gradient(820px 520px at 70% 85%, rgba(var(--accent3), .10), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.02), transparent 25%),
+        var(--bg);
+    }
+    .grain{
+      position:fixed; inset:-30%; z-index:-2;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='320' height='320' filter='url(%23n)' opacity='.22'/%3E%3C/svg%3E");
+      opacity:.22;
+      mix-blend-mode: overlay;
+      transform: rotate(8deg);
+      pointer-events:none;
+    }
+    .motif{
+      position:fixed; inset:0; z-index:-1;
+      opacity:.22;
+      pointer-events:none;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.14) 1px, transparent 1px) 0 0/14px 14px,
+        linear-gradient(0deg,  rgba(255,255,255,.14) 1px, transparent 1px) 0 0/14px 14px;
+      mask-image: radial-gradient(700px 520px at 72% 28%, #000 0%, transparent 66%);
+      -webkit-mask-image: radial-gradient(700px 520px at 72% 28%, #000 0%, transparent 66%);
+    }
+
+    /* Header */
+    .header{
+      position:sticky; top:0; z-index:50;
+      background: rgba(7,7,8,.55);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .header__inner{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      letter-spacing:.14em;
+      text-transform: lowercase;
+      font-weight:600;
+    }
+    .mark{
+      width:28px; height:28px; border-radius:10px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.20) 1px, transparent 1px) 0 0/7px 7px,
+        linear-gradient(0deg,  rgba(255,255,255,.20) 1px, transparent 1px) 0 0/7px 7px;
+      border: 1px solid rgba(255,255,255,.20);
+      box-shadow: 0 12px 30px rgba(0,0,0,.45);
+    }
+    nav{
+      display:flex; gap:18px; align-items:center;
+      font-size:14px;
+      color: var(--muted);
+    }
+    nav a{ padding:8px 10px; border-radius:999px; }
+    nav a:hover{ background: rgba(255,255,255,.05); color:var(--text); }
+    @media (max-width: 900px){ nav{ display:none; } }
+
+    /* Buttons */
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      font-weight:600;
+      box-shadow: 0 18px 44px rgba(0,0,0,.35);
+      transition: transform .18s ease, background .18s ease, border-color .18s ease;
+      will-change: transform;
+    }
+    .btn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.20); }
+    .btn--solid{
+      background: linear-gradient(135deg, rgba(var(--accent), .26), rgba(var(--accent2), .18));
+      border-color: rgba(255,255,255,.22);
+    }
+    .btn--ghost{
+      background: transparent;
+      box-shadow:none;
+    }
+
+    /* Hero */
+    .hero{ padding: 52px 0 24px; }
+    .hero__grid{
+      display:grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap:22px;
+      align-items: start;
+    }
+    @media (max-width: 980px){
+      .hero__grid{ grid-template-columns:1fr; }
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      width: fit-content;
+    }
+    .dot{
+      width:8px; height:8px; border-radius:999px;
+      background: rgba(var(--accent), .95);
+      box-shadow: 0 0 0 6px rgba(var(--accent), .12);
+    }
+    h1{
+      font-family: Sora, Inter, ui-sans-serif, system-ui;
+      font-size: clamp(36px, 5vw, 58px);
+      line-height: 1.03;
+      letter-spacing: -0.02em;
+      margin: 16px 0 12px;
+    }
+    .lead{
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.65;
+      margin: 0 0 18px;
+      max-width: 62ch;
+    }
+    .hero__cta{ display:flex; gap:12px; flex-wrap:wrap; margin: 10px 0 18px; }
+    .chips{ display:flex; gap:10px; flex-wrap:wrap; }
+    .chip{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      color: rgba(243,244,246,.82);
+      font-size: 13px;
+    }
+
+    /* Feature card */
+    .card{
+      border-radius: var(--radius);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      overflow:hidden;
+      position:relative;
+    }
+    .card::before{
+      content:"";
+      position:absolute; inset:-40%;
+      background: radial-gradient(closest-side, rgba(var(--accent2), .22), transparent 60%);
+      transform: translate(42%, -8%);
+      opacity:.55;
+      pointer-events:none;
+    }
+    .card__top{
+      display:flex; gap:14px; align-items:flex-start;
+      position:relative;
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 10px 12px;
+      border-radius: 16px;
+      background: rgba(0,0,0,.24);
+      border:1px solid rgba(255,255,255,.14);
+    }
+    .badge__icon{
+      width:42px; height:42px; border-radius:14px;
+      background:
+        linear-gradient(90deg, rgba(255,255,255,.18) 1px, transparent 1px) 0 0/10px 10px,
+        linear-gradient(0deg,  rgba(255,255,255,.18) 1px, transparent 1px) 0 0/10px 10px;
+      border:1px solid rgba(255,255,255,.18);
+    }
+    .badge__title{ font-weight:700; }
+    .badge__desc{ color: var(--muted); font-size:14px; line-height:1.55; margin-top:2px; }
+
+    .rows{
+      margin-top:14px;
+      border-top:1px solid rgba(255,255,255,.10);
+      position:relative;
+    }
+    .row{
+      display:flex; justify-content:space-between; gap:12px;
+      padding:12px 0;
+      border-bottom:1px solid rgba(255,255,255,.08);
+      font-size:14px;
+      color: rgba(243,244,246,.88);
+    }
+    .pillrow{ display:flex; gap:10px; margin-top:12px; flex-wrap:wrap; }
+    .pill{
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.04);
+      font-size:12px;
+      color: rgba(243,244,246,.86);
+    }
+    .pill--muted{ color: var(--muted); }
+
+    /* Sections */
+    section{ padding: 44px 0; }
+    .alt{
+      border-top:1px solid rgba(255,255,255,.08);
+      border-bottom:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.04), transparent);
+    }
+    .head{
+      max-width: 80ch;
+      margin-bottom: 18px;
+    }
+    h2{
+      font-family: Sora, Inter, ui-sans-serif, system-ui;
+      margin:0 0 8px;
+      font-size: 28px;
+      letter-spacing:-.01em;
+    }
+    .head p{ margin:0; color: var(--muted); line-height: 1.65; }
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:14px;
+    }
+    @media (max-width: 980px){ .grid3{ grid-template-columns:1fr; } }
+
+    .panel{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 16px;
+      transition: transform .18s ease, border-color .18s ease, background .18s ease;
+    }
+    .panel:hover{
+      transform: translateY(-2px);
+      border-color: rgba(255,255,255,.16);
+      background: rgba(255,255,255,.04);
+    }
+    .panel h3{ margin:0 0 6px; font-size:16px; }
+    .panel p{ margin:0; color: var(--muted); line-height:1.6; }
+
+    .list{ margin: 10px 0 0; padding-left: 18px; color: var(--muted); line-height: 1.75; }
+    .list li{ margin:6px 0; }
+
+    /* Forms */
+    .formwrap{ max-width: 880px; }
+    form{
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 16px;
+    }
+    .grid2{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:14px;
+    }
+    @media (max-width: 720px){ .grid2{ grid-template-columns:1fr; } }
+    .field{ display:flex; flex-direction:column; gap:8px; margin-bottom:14px; }
+    label, legend{ font-size:13px; color: rgba(243,244,246,.88); }
+    input, select, textarea{
+      width:100%;
+      padding: 12px 12px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(0,0,0,.24);
+      color: var(--text);
+      outline:none;
+    }
+    input:focus, select:focus, textarea:focus{
+      border-color: rgba(255,255,255,.30);
+      box-shadow: 0 0 0 4px rgba(255,255,255,.06);
+    }
+    small{ color: var(--muted); line-height: 1.4; }
+    fieldset{
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: var(--radius);
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+    .checks{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    @media (max-width: 720px){ .checks{ grid-template-columns:1fr; } }
+    .checks label{
+      display:flex; gap:10px; align-items:flex-start;
+      padding:10px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      color: var(--muted);
+    }
+    .checks input{ width:auto; margin-top:2px; }
+    .msg{ margin: 12px 0 0; min-height: 1.2em; color: var(--muted); }
+
+    /* Footer */
+    footer{
+      padding: 28px 0 40px;
+      border-top:1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, transparent, rgba(255,255,255,.02));
+    }
+    .footer__inner{
+      display:flex; justify-content:space-between; gap:18px; align-items:flex-start;
+      flex-wrap:wrap;
+    }
+    .fine{ margin:10px 0 0; color: var(--muted); font-size: 13px; line-height: 1.6; max-width: 60ch; }
+    .links{ display:flex; gap:14px; flex-wrap:wrap; color: var(--muted); font-size: 14px; }
+    .links a{ padding:8px 10px; border-radius:999px; }
+    .links a:hover{ background: rgba(255,255,255,.05); color: var(--text); }
+
+    /* Reduce motion */
+    @media (prefers-reduced-motion: reduce){
+      .btn, .panel{ transition:none; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg"></div>
+  <div class="grain"></div>
+  <div class="motif"></div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <div class="brand">
+        <div class="mark" aria-hidden="true"></div>
+        <div>aspier</div>
+      </div>
+
+      <nav aria-label="Primary">
+        <a href="#vision">Vision</a>
+        <a href="#drops">Drops</a>
+        <a href="#vip">VIP</a>
+        <a href="#missing">What’s missing?</a>
+      </nav>
+
+      <a class="btn btn--ghost" href="#vip">Join VIP</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div>
+          <div class="kicker"><span class="dot" aria-hidden="true"></span> UK launch incoming</div>
+          <h1>Premium activewear that feels good <span style="color:var(--soft)">on you</span>.</h1>
+          <p class="lead">
+            Minimal design. Elevated texture. Better materials with transparency.
+            Built by a fitness professional in training — aiming to raise standards and give back to sport.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn btn--solid" href="#vip">Get first-drop access</a>
+            <a class="btn btn--ghost" href="#missing">Tell us what’s missing</a>
+          </div>
+
+          <div class="chips" role="list" aria-label="Brand pillars">
+            <div class="chip" role="listitem">Quiet branding</div>
+            <div class="chip" role="listitem">Tonal Grid Monogram</div>
+            <div class="chip" role="listitem">Comfort-first materials</div>
+            <div class="chip" role="listitem">Community give-back</div>
+          </div>
+        </div>
+
+        <aside class="card" aria-label="Signature DNA card">
+          <div class="card__top">
+            <div class="badge">
+              <div class="badge__icon" aria-hidden="true"></div>
+              <div>
+                <div class="badge__title">Signature DNA</div>
+                <div class="badge__desc">
+                  Tonal Grid Monogram panels + clean seam lines + understated “aspier” placement.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="rows" aria-label="Launch categories">
+            <div class="row"><span>Mens</span><span>Shorts + tee (premium)</span></div>
+            <div class="row"><span>Womens</span><span>Sculpt set (tonal)</span></div>
+            <div class="row"><span>Outerwear</span><span>Elevated layers</span></div>
+          </div>
+
+          <div class="pillrow">
+            <span class="pill">Drop 01</span>
+            <span class="pill pill--muted">Limited quantities</span>
+            <span class="pill pill--muted">Feedback-led fit</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- VISION -->
+    <section id="vision">
+      <div class="container">
+        <div class="head">
+          <h2>Why aspier</h2>
+          <p>
+            The premium activewear space still misses the basics: truly refined colourways, genuinely functional details,
+            and clear honesty about what touches your skin. aspier is built to be minimal, elevated, and better-for-you by design.
+          </p>
+        </div>
+
+        <div class="grid3">
+          <div class="panel">
+            <h3>Design (quiet + premium)</h3>
+            <p>Understated branding, sculpting lines, and tonal texture that feels “Alo-like” without copying anyone.</p>
+          </div>
+          <div class="panel">
+            <h3>Materials (comfort + transparency)</h3>
+            <p>We’ll prioritise comfort-first textiles and explain choices clearly — no vague “performance fabric” talk.</p>
+          </div>
+          <div class="panel">
+            <h3>Movement (community + give-back)</h3>
+            <p>Built to grow a training community, with give-back to sports charities baked into the brand mission.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DROPS -->
+    <section id="drops" class="alt">
+      <div class="container">
+        <div class="head">
+          <h2>Drop roadmap</h2>
+          <p>Start tight. Build quality. Improve every version through real feedback.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="panel">
+            <h3>Drop 01</h3>
+            <ul class="list">
+              <li>Mens set: premium tee + shorts (tonal texture panel)</li>
+              <li>Womens sculpt set: tonal Grid Monogram panel</li>
+              <li>Core neutrals + one standout accent colourway</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Drop 02</h3>
+            <ul class="list">
+              <li>Outerwear layers</li>
+              <li>Fit refinement + fabric upgrades based on feedback</li>
+              <li>Expanded sizing</li>
+            </ul>
+          </div>
+
+          <div class="panel">
+            <h3>Beyond</h3>
+            <ul class="list">
+              <li>Personalisation/tailoring options</li>
+              <li>Charity partnerships + community events</li>
+              <li>Long term: studios + wellness spaces</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIP -->
+    <section id="vip">
+      <div class="container">
+        <div class="head">
+          <h2>Join the VIP list</h2>
+          <p>Early access, colourway voting, and first-drop announcements. No spam.</p>
+        </div>
+
+        <div class="formwrap">
+          <form id="leadForm" novalidate>
+            <div class="grid2">
+              <div class="field">
+                <label for="leadName">Name (optional)</label>
+                <input id="leadName" name="name" type="text" autocomplete="name" placeholder="Your name" />
+              </div>
+
+              <div class="field">
+                <label for="interest">Most interested in</label>
+                <select id="interest" name="interest">
+                  <option>Mens sets</option>
+                  <option>Womens sets</option>
+                  <option>Outerwear</option>
+                  <option selected>All of it</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="leadEmail">Email</label>
+              <input id="leadEmail" name="email" type="email" required autocomplete="email" placeholder="you@domain.com" />
+              <small>Unsubscribe anytime. We only email about aspier drops & updates.</small>
+            </div>
+
+            <button class="btn btn--solid" type="submit">Join VIP</button>
+            <p id="leadMsg" class="msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S MISSING -->
+    <section id="missing" class="alt">
+      <div class="container">
+        <div class="head">
+          <h2>What’s missing in premium activewear?</h2>
+          <p>
+            Tell us what the big brands still don’t get right — colours, fit, fabrics, transparency, price, durability…
+            Your answers shape Drop 01 and beyond.
+          </p>
+        </div>
+
+        <div class="formwrap">
+          <form id="insightForm" novalidate>
+            <div class="grid2">
+              <div class="field">
+                <label for="insightEmail">Email (optional)</label>
+                <input id="insightEmail" name="email" type="email" autocomplete="email" placeholder="you@domain.com" />
+              </div>
+
+              <div class="field">
+                <label for="budget">Typical spend for a premium set?</label>
+                <select id="budget" name="budget">
+                  <option>Under £80</option>
+                  <option selected>£80–£120</option>
+                  <option>£120–£180</option>
+                  <option>£180+</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset>
+              <legend>Quick picks (tick any)</legend>
+              <div class="checks">
+                <label><input type="checkbox" name="pain" value="Better colours (not boring)"> Better colours (not boring)</label>
+                <label><input type="checkbox" name="pain" value="Better fits across body types"> Better fits across body types</label>
+                <label><input type="checkbox" name="pain" value="Honest fabric transparency"> Honest fabric transparency</label>
+                <label><input type="checkbox" name="pain" value="Less irritation / comfier materials"> Less irritation / comfier materials</label>
+                <label><input type="checkbox" name="pain" value="Durability (no pilling / stretching)"> Durability (no pilling / stretching)</label>
+                <label><input type="checkbox" name="pain" value="Functional details (pockets/zips)"> Functional details (pockets/zips)</label>
+              </div>
+            </fieldset>
+
+            <div class="grid2">
+              <div class="field">
+                <label for="colours">Colours you want to see</label>
+                <input id="colours" name="colours" type="text" placeholder="e.g., navy, bone, forest green, charcoal" />
+              </div>
+
+              <div class="field">
+                <label for="fit">Biggest fit issue you face?</label>
+                <input id="fit" name="fit" type="text" placeholder="e.g., waistband roll, thigh tight, length, chest fit…" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="missingText">Your feedback</label>
+              <textarea id="missingText" name="missing" rows="6" required
+                placeholder="If you could change one thing about premium activewear today, what would it be?"></textarea>
+            </div>
+
+            <button class="btn btn--solid" type="submit">Send feedback</button>
+            <p id="insightMsg" class="msg" role="status" aria-live="polite"></p>
+
+            <small>
+              Note: right now this page stores submissions locally in your browser and opens an email draft to send to us.
+              When you’re ready, I can wire this to a Cloudflare database so it saves automatically.
+            </small>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container footer__inner">
+        <div>
+          <div class="brand">
+            <div class="mark" aria-hidden="true"></div>
+            <div>aspier</div>
+          </div>
+          <p class="fine">
+            Premium activewear — minimal, elevated, and community-led. <br/>
+            Contact: <a href="mailto:hello@aspier.uk">hello@aspier.uk</a>
+          </p>
+        </div>
+
+        <div class="links">
+          <a href="#vip">VIP</a>
+          <a href="#missing">Feedback</a>
+          <a href="#vision">Vision</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // Premium UX: simple, reliable form handling with a "works today" fallback.
+    function setMsg(el, text, ok=true){
+      el.textContent = text;
+      el.style.color = ok ? "rgba(185,255,205,.95)" : "rgba(255,150,150,.95)";
+    }
+
+    function collectChecks(form, name){
+      const values = [];
+      form.querySelectorAll(`input[name="${name}"]:checked`).forEach(cb => values.push(cb.value));
+      return values;
+    }
+
+    function mailto(subject, body){
+      const url = "mailto:hello@aspier.uk?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      window.location.href = url;
+    }
+
+    // VIP list: stores locally for now + opens email to send
+    document.getElementById("leadForm")?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const msg = document.getElementById("leadMsg");
+
+      const name = document.getElementById("leadName").value.trim();
+      const email = document.getElementById("leadEmail").value.trim();
+      const interest = document.getElementById("interest").value;
+
+      if(!email || !email.includes("@")){
+        setMsg(msg, "Please enter a valid email address.", false);
+        return;
+      }
+
+      // Store locally (quick win)
+      const leads = JSON.parse(localStorage.getItem("aspier_leads") || "[]");
+      leads.push({ name, email, interest, ts: new Date().toISOString() });
+      localStorage.setItem("aspier_leads", JSON.stringify(leads));
+
+      setMsg(msg, "You’re in — VIP access confirmed ✅");
+      e.target.reset();
+
+      // Optional: open email draft to collect in inbox immediately
+      mailto(
+        "aspier VIP signup",
+        `New VIP signup:\n\nName: ${name || "-"}\nEmail: ${email}\nInterest: ${interest}\n\n(Collected via aspier.uk landing page)`
+      );
+    });
+
+    // Industry feedback: stores locally + opens email draft
+    document.getElementById("insightForm")?.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const msg = document.getElementById("insightMsg");
+
+      const email = document.getElementById("insightEmail").value.trim();
+      const budget = document.getElementById("budget").value;
+      const colours = document.getElementById("colours").value.trim();
+      const fit = document.getElementById("fit").value.trim();
+      const missing = document.getElementById("missingText").value.trim();
+      const pains = collectChecks(e.target, "pain");
+
+      if(!missing || missing.length < 10){
+        setMsg(msg, "Please add a bit more detail (at least 10 characters).", false);
+        return;
+      }
+
+      const insights = JSON.parse(localStorage.getItem("aspier_insights") || "[]");
+      insights.push({ email, budget, colours, fit, pains, missing, ts: new Date().toISOString() });
+      localStorage.setItem("aspier_insights", JSON.stringify(insights));
+
+      setMsg(msg, "Thank you — this is gold. We’ll build with this ✅");
+      e.target.reset();
+
+      mailto(
+        "aspier — What’s missing in premium activewear",
+        `New feedback submission:\n\nEmail: ${email || "-"}\nBudget: ${budget}\nPain points: ${pains.join(", ") || "-"}\nColours: ${colours || "-"}\nFit issue: ${fit || "-"}\n\nWhat's missing:\n${missing}\n\n(Collected via aspier.uk landing page)`
+      );
+    });
+  </script>
+</body>
+</html>
