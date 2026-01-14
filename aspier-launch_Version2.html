@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="aspier — premium activewear. Better materials, cleaner design, stronger community." />
+  <title>aspier — Premium Activewear (UK Launch)</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="header">
+    <div class="container header__inner">
+      <div class="brand">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__name">aspier</div>
+      </div>
+
+      <nav class="nav" aria-label="Primary">
+        <a href="#vision">Vision</a>
+        <a href="#drops">Drops</a>
+        <a href="#missing">What’s missing?</a>
+        <a class="btn btn--ghost" href="#vip">Join VIP</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="kicker">UK launch incoming</p>
+          <h1>Premium activewear that feels good <span class="soft">on you</span>.</h1>
+          <p class="lead">
+            Minimal design. Elevated texture. Materials chosen with skin-comfort and transparency in mind.
+            Built to move. Built to last. Built to give back.
+          </p>
+
+          <div class="hero__cta">
+            <a class="btn" href="#vip">Get first drop access</a>
+            <a class="btn btn--ghost" href="#missing">Tell us what’s missing</a>
+          </div>
+
+          <div class="badges" role="list" aria-label="Brand pillars">
+            <div class="badge" role="listitem">Quiet branding</div>
+            <div class="badge" role="listitem">Better materials</div>
+            <div class="badge" role="listitem">Community give-back</div>
+          </div>
+        </div>
+
+        <div class="hero__card" aria-label="Preview card">
+          <div class="card">
+            <div class="card__top">
+              <div class="grid-motif" aria-hidden="true"></div>
+              <div class="card__meta">
+                <div class="card__title">Signature DNA</div>
+                <div class="card__desc">
+                  Tonal Grid Monogram panels + clean seam lines + understated “aspier” placement.
+                </div>
+              </div>
+            </div>
+
+            <div class="card__rows">
+              <div class="row">
+                <span>Mens</span>
+                <span>Training set + tee</span>
+              </div>
+              <div class="row">
+                <span>Womens</span>
+                <span>Sculpt set</span>
+              </div>
+              <div class="row">
+                <span>Outerwear</span>
+                <span>Premium layers</span>
+              </div>
+            </div>
+
+            <div class="card__footer">
+              <span class="pill">Drop 01</span>
+              <span class="pill pill--muted">Limited quantities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="vision" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Why aspier</h2>
+          <p>
+            Most activewear feels samey: repetitive colourways, loud branding, questionable material choices,
+            and not enough honesty about what touches your skin. aspier is here to raise the standard.
+          </p>
+        </div>
+
+        <div class="grid3">
+          <div class="panel">
+            <h3>Design</h3>
+            <p>Premium, minimal silhouettes with subtle texture. No shouting — just quality you can feel.</p>
+          </div>
+          <div class="panel">
+            <h3>Materials</h3>
+            <p>We’ll prioritise comfort and transparency: what it is, why it’s used, and how it performs.</p>
+          </div>
+          <div class="panel">
+            <h3>Movement</h3>
+            <p>Built by a fitness professional in training — aiming to grow a community and give back to sport.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="drops" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>Drop roadmap</h2>
+          <p>Start strong. Keep it tight. Improve every iteration.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="panel panel--tight">
+            <h3>Drop 01</h3>
+            <ul class="list">
+              <li>Mens set: premium tee + shorts</li>
+              <li>Womens sculpt set: tonal monogram panel</li>
+              <li>Core colours + one standout accent</li>
+            </ul>
+          </div>
+          <div class="panel panel--tight">
+            <h3>Drop 02</h3>
+            <ul class="list">
+              <li>Outerwear layers</li>
+              <li>Improved fits based on feedback</li>
+              <li>Expanded sizing</li>
+            </ul>
+          </div>
+          <div class="panel panel--tight">
+            <h3>Beyond</h3>
+            <ul class="list">
+              <li>Personalisation/tailoring options</li>
+              <li>Partnerships + charity give-back</li>
+              <li>Long-term: studios + community spaces</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIP SIGNUP -->
+    <section id="vip" class="section">
+      <div class="container">
+        <div class="section__head">
+          <h2>Join the VIP list</h2>
+          <p>Early access, colourway voting, and first drop announcements. No spam.</p>
+        </div>
+
+        <div class="formwrap">
+          <form id="leadForm" class="form" novalidate>
+            <!-- Honeypot (spam trap) -->
+            <label class="hp" aria-hidden="true">
+              Don’t fill this in
+              <input type="text" name="hp" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <div class="field">
+              <label for="leadName">Name (optional)</label>
+              <input id="leadName" name="name" type="text" autocomplete="name" placeholder="Your name" />
+            </div>
+
+            <div class="field">
+              <label for="leadEmail">Email</label>
+              <input id="leadEmail" name="email" type="email" required autocomplete="email" placeholder="you@domain.com" />
+              <small class="hint">By joining, you agree to be contacted about aspier drops. Unsubscribe anytime.</small>
+            </div>
+
+            <div class="field">
+              <label for="interest">What are you most interested in?</label>
+              <select id="interest" name="interest">
+                <option value="Mens sets">Mens sets</option>
+                <option value="Womens sets">Womens sets</option>
+                <option value="Outerwear">Outerwear</option>
+                <option value="All of it" selected>All of it</option>
+              </select>
+            </div>
+
+            <button class="btn" type="submit">Join VIP</button>
+            <p id="leadMsg" class="msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT'S MISSING -->
+    <section id="missing" class="section section--alt">
+      <div class="container">
+        <div class="section__head">
+          <h2>What’s missing in premium activewear?</h2>
+          <p>
+            Tell us what the big brands still don’t get right — colours, fit, fabrics, transparency, price,
+            durability… anything. Your answers will shape Drop 01 and beyond.
+          </p>
+        </div>
+
+        <div class="formwrap">
+          <form id="insightForm" class="form" novalidate>
+            <!-- Honeypot (spam trap) -->
+            <label class="hp" aria-hidden="true">
+              Don’t fill this in
+              <input type="text" name="hp" tabindex="-1" autocomplete="off" />
+            </label>
+
+            <div class="grid2">
+              <div class="field">
+                <label for="insightEmail">Email (optional)</label>
+                <input id="insightEmail" name="email" type="email" autocomplete="email" placeholder="you@domain.com" />
+              </div>
+
+              <div class="field">
+                <label for="budget">Typical spend for a premium set?</label>
+                <select id="budget" name="budget">
+                  <option value="Under £80">Under £80</option>
+                  <option value="£80–£120" selected>£80–£120</option>
+                  <option value="£120–£180">£120–£180</option>
+                  <option value="£180+">£180+</option>
+                </select>
+              </div>
+            </div>
+
+            <fieldset class="field">
+              <legend>Quick picks (tick any)</legend>
+              <div class="checks">
+                <label><input type="checkbox" name="painPoints" value="Better colours (not boring)" /> Better colours (not boring)</label>
+                <label><input type="checkbox" name="painPoints" value="Better fits across body types" /> Better fits across body types</label>
+                <label><input type="checkbox" name="painPoints" value="Honest fabric transparency" /> Honest fabric transparency</label>
+                <label><input type="checkbox" name="painPoints" value="Less skin irritation / comfier materials" /> Less skin irritation / comfier materials</label>
+                <label><input type="checkbox" name="painPoints" value="Durability (no pilling / stretching)" /> Durability (no pilling / stretching)</label>
+                <label><input type="checkbox" name="painPoints" value="Functional details (pockets/zips)" /> Functional details (pockets/zips)</label>
+              </div>
+            </fieldset>
+
+            <div class="grid2">
+              <div class="field">
+                <label for="colours">Colours you want to see (comma-separated)</label>
+                <input id="colours" name="colours" type="text" placeholder="e.g., navy, bone, forest green, charcoal" />
+              </div>
+
+              <div class="field">
+                <label for="sizes">Biggest fit problem you face?</label>
+                <input id="sizes" name="sizes" type="text" placeholder="e.g., waistband roll, thigh tight, length, chest fit…" />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="missingText">What’s missing (your words)</label>
+              <textarea id="missingText" name="missing" rows="6" required
+                placeholder="If you could change one thing about premium activewear today, what would it be?"></textarea>
+            </div>
+
+            <button class="btn" type="submit">Send feedback</button>
+            <p id="insightMsg" class="msg" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div>
+          <div class="brand brand--small">
+            <div class="brand__mark" aria-hidden="true"></div>
+            <div class="brand__name">aspier</div>
+          </div>
+          <p class="fine">Premium activewear — minimal, elevated, and community-led.</p>
+        </div>
+
+        <div class="footer__links">
+          <a href="#vip">VIP list</a>
+          <a href="#missing">Feedback</a>
+          <a href="mailto:hello@aspier.uk">hello@aspier.uk</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
